@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: dev
+
+  messages:
+    basename: static/i18n/messages #相对路径 开头请勿添加斜杠
+#  http:
+#    encoding:
+#      enabled: true
+#      charset: UTF-8
+#      force: true
+
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+#  session:
+#    store-type: redis
+
+#  redis:
+#    database: 0
+#    host: 192.168.1.130
+#    port: 6379
+#    password:
+
+
+
+
+#
+#  main:
+#    allow-bean-definition-overriding: true
+
+#连续5次未接收到机器人检测数据触发报警
+monitor:
+  maxBreak: 5
+
+
+
+
+
+
+
+
+

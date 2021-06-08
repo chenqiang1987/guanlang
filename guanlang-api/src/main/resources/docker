@@ -1,0 +1,13 @@
+
+
+端口占用情况
+
+redis启动
+
+docker run -itd --name redis-test -p 6379:6379 redis
+
+
+
+
+模拟机器人docker
+docker run -it --name ubuntu -p 20080:8080 -v /home/guanlang/share:/alidata ubuntu /bin/bash

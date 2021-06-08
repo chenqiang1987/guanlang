@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %X{transNo} [%thread] %-5level %logger{36} %xException{full} - %msg
+                %n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!--myibatis log configure-->
+    <!--   <logger name="org.mybatis" level="DEBUG"/>
+       <logger name="com.alibaba.druid" level="DEBUG"/>
+       <logger name="org.apache.ibatis" level="DEBUG"/>
+       <logger name="java.sql.Connection" level="DEBUG"/>
+       <logger name="java.sql.Statement" level="TRACE"/>
+       <logger name="java.sql.PreparedStatement" level="DEBUG"/>
+       <logger name="java.sql" level="DEBUG"/>
+       <logger name="com.alibaba.dubbo" level="ERROR"/>
+       <logger name="org.apache.zookeeper" level="ERROR"/>
+       <logger name="com.bypay" level="INFO"/>
+       <logger name="org.apache.commons.beanutils" level="INFO"/>
+       <logger name="org.apache.activemq" level="INFO"/>-->
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <!--myibatis log configure-->
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/home/log/guanlang-info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>90</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>500MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %X{transNo} [%thread] %-5level %logger{36} %xException{full} - %msg
+                %n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="STDOUT"></appender-ref>
+    </root>
+</configuration>

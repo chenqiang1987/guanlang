@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: dev
+
+  messages:
+    basename: static/i18n/messages #相对路径 开头请勿添加斜杠
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+
+
+
+
+
+
+
+
+
